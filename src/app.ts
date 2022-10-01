@@ -37,9 +37,10 @@ const getData = async () => {
       zone: zone,
       recipient: recipient,
       offer: offer,
+      consideration: consideration,
       data: event,
     };
-
+    
     console.log(JSON.stringify(eventResults, null, 7));
   });
 }
