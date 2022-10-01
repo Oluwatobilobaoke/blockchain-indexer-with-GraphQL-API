@@ -1,5 +1,4 @@
 # blockchain-indexer-with-GraphQL-API
- # liteflow-assesment
 
 This is a liteflow assessment project: Blockchain Indexer  powered by Nodejs, Pg, PostGraphile and TS
 
