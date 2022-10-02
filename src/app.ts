@@ -1,5 +1,6 @@
 require("dotenv").config();
 import { BigNumber, Contract, providers } from "ethers";
+import { filterData } from "./utils";
 
 import pool from './dbconfig';
 
@@ -27,22 +28,44 @@ const connectToDb = async () => {
 
 connectToDb();
 
+
+const EventArray: any[] = [];
+
 const getData = async () => {
   const contract = new Contract(seaportContract, seaportABI, provider);
   contract.on("OrderFulfilled", (orderHash, offerer, zone, recipient,  offer,  consideration, event) => {
 
-    let eventResults = {
-      orderHash: orderHash,
-      offerer: offerer,
-      zone: zone,
-      recipient: recipient,
-      offer: offer,
-      consideration: consideration,
-      data: event,
-    };
     
-    console.log(JSON.stringify(eventResults, null, 7));
+  let eventResults = {
+    orderHash: orderHash,
+    offerer: offerer,
+    zone: zone,
+    recipient: recipient,
+    offer: offer,
+    consideration: consideration,
+    data: event,
+  };
+
+  EventArray.push(eventResults);
+
+
+  //  log the event data to the console
+  // console.log("=====EventArray Results======");
+  // console.log("=====EventArray Results======");
+  // console.log("=====EventArray Results======");
+  // console.log({EventArray});
+  // console.log("=====EventArray Results======");
+  // console.log("=====EventArray Results======");
+  // console.log("=====EventArray Results======");
+
+   const filtererdArray = filterData(EventArray);
+
+   console.log(JSON.stringify(filtererdArray, null, 5));
+   
+
+    
   });
+
 }
 
 getData();
