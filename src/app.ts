@@ -1,8 +1,8 @@
 require("dotenv").config();
-import { BigNumber, Contract, providers } from "ethers";
-import { filterData } from "./utils";
-
 import pool from './dbconfig';
+import { Contract, providers } from "ethers";
+import { createSaleRecord, filterData } from "./utils";
+
 
 
 import seaportABI from './abi/seaport.json'; // ABI for the seaport contract
@@ -33,8 +33,7 @@ const EventArray: any[] = [];
 
 const getData = async () => {
   const contract = new Contract(seaportContract, seaportABI, provider);
-  contract.on("OrderFulfilled", (orderHash, offerer, zone, recipient,  offer,  consideration, event) => {
-
+   contract.on("OrderFulfilled", async (orderHash, offerer, zone, recipient,  offer,  consideration, event) => {
     
   let eventResults = {
     orderHash: orderHash,
@@ -46,25 +45,29 @@ const getData = async () => {
     data: event,
   };
 
+  console.log("=========getting event from SeaPort =======");
+
   EventArray.push(eventResults);
 
 
-  //  log the event data to the console
-  // console.log("=====EventArray Results======");
-  // console.log("=====EventArray Results======");
-  // console.log("=====EventArray Results======");
-  // console.log({EventArray});
-  // console.log("=====EventArray Results======");
-  // console.log("=====EventArray Results======");
-  // console.log("=====EventArray Results======");
 
-   const filtererdArray = filterData(EventArray);
+  console.log("=========Filtering Results from SeaPort =======");
 
-   console.log(JSON.stringify(filtererdArray, null, 5));
+  const filtererdArray = filterData(EventArray);
+  //  console.log("=====filtererdArray Results======");
+  //  console.log(JSON.stringify(filtererdArray, null, 6));
+  //  console.log("=====filtererdArray Results======");
+  
+  console.log("=========Saving Results to Db =======");
+  await createSaleRecord(filtererdArray);
    
+  });
+
 
     
-  });
+
+
+
 
 }
 
