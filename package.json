@@ -8,7 +8,7 @@
     "build": "sh build.sh",
     "start": "node dist/app.js",
     "dev1": "npx postgraphile -c supabase -s app --watch -p 4000",
-    "dev2": "npx postgraphile -c supabase -s app --watch -p 4000 --enhance-graphiql",
+    "dev2": "npx postgraphile -c supabase -s app --watch -p 4000 --export-schema-graphql schema.graphql",
     "dev3": "npx postgraphile -c supabase -s app --watch -p 4000 --append-plugins @graphile-contrib/pg-simplify-inflector",
     "dev4": "npx postgraphile -c supabase -s app --watch -p 4000 --append-plugins @graphile-contrib/pg-simplify-inflector --enhance-graphiql"
   },
