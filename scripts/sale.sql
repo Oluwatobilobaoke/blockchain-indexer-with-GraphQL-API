@@ -1,9 +1,9 @@
-CREATE TABLE sale (
+CREATE TABLE app.sale (
 	id serial PRIMARY KEY,
-	transaction_hash TEXT UNIQUE NOT NULL ,
+	transaction_hash TEXT NOT NULL ,
 	seller_address  TEXT  NOT NULL,
 	buyer_address  TEXT  NOT NULL,
-	nft_token_id TEXT NOT NULL CHECK ,
+	nft_token_id TEXT NOT NULL,
 	nft_collection_address  TEXT  NOT NULL,
 	quantity_sold SMALLINT NOT NULL CHECK (quantity_sold > 0),
 	amount_paid  TEXT NOT NULL,
