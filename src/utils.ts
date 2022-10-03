@@ -27,8 +27,8 @@ export async function createSaleRecord(salesArray: any) {
     };
 
       
-    // const query =  `INSERT INTO app.sale (${parameterNames.join(',')}) VALUES ${parameters.map((p) => `(${p.join(',')})`).join(',')} RETURNING *`;
-    const query =  `INSERT INTO sale (${parameterNames.join(',')}) VALUES ${parameters.map((p) => `(${p.join(',')})`).join(',')} RETURNING *`;
+    const query =  `INSERT INTO app.sale (${parameterNames.join(',')}) VALUES ${parameters.map((p) => `(${p.join(',')})`).join(',')} RETURNING *`;
+    // const query =  `INSERT INTO sale (${parameterNames.join(',')}) VALUES ${parameters.map((p) => `(${p.join(',')})`).join(',')} RETURNING *`;
     // console.log(query)  
     // insert into db
     await client.query(
