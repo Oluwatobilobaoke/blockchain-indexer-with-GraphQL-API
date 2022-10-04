@@ -35,7 +35,7 @@ This is a liteflow assessment project: Blockchain Indexer  powered by Nodejs, Pg
 ## How to create a new table
 
 ```
-CREATE TABLE app.sale (
+CREATE TABLE sale (
 	id serial PRIMARY KEY,
 	transaction_hash TEXT NOT NULL ,
 	seller_address  TEXT  NOT NULL,
@@ -46,5 +46,6 @@ CREATE TABLE app.sale (
 	amount_paid  TEXT NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
+
 
 ```
