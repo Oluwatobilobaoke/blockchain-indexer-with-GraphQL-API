@@ -7,10 +7,10 @@
     "dev": "nodemon src/app.ts",
     "build": "sh build.sh",
     "start": "node dist/app.js",
-    "dev1": "npx postgraphile -c supabase -s app --watch -p 4000",
-    "dev2": "npx postgraphile -c supabase -s app --watch -p 4000 --export-schema-graphql schema.graphql",
-    "dev3": "npx postgraphile -c supabase -s app --watch -p 4000 --append-plugins @graphile-contrib/pg-simplify-inflector",
-    "dev4": "npx postgraphile -c supabase -s app --watch -p 4000 --append-plugins @graphile-contrib/pg-simplify-inflector --enhance-graphiql"
+    "dev1": "npx postgraphile -c supabase -s public --watch -p 4000",
+    "dev2": "npx postgraphile -c supabase -s public --watch -p 4000 --export-schema-graphql schema.graphql",
+    "dev3": "npx postgraphile -c supabase -s public --watch -p 4000 --append-plugins @graphile-contrib/pg-simplify-inflector",
+    "dev4": "npx postgraphile -c supabase -s public --watch -p 4000 --append-plugins @graphile-contrib/pg-simplify-inflector --enhance-graphiql"
   },
   "keywords": [],
   "author": "",
@@ -20,8 +20,9 @@
     "dotenv": "^16.0.3",
     "ethers": "^5.7.1",
     "pg": "^8.8.0",
-    "plugin": "^0.3.3",
-    "postgraphile": "^4.12.11"
+    "plugin": "^0.0.15",
+    "postgraphile": "^4.12.11",
+    "prettier": "^2.7.1"
   },
   "devDependencies": {
     "@types/node": "^18.7.23",

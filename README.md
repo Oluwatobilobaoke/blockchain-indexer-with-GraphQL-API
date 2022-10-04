@@ -6,7 +6,8 @@ This is a liteflow assessment project: Blockchain Indexer  powered by Nodejs, Pg
 - NodeJS runtime
 - NPM or Yarn package manager
 - Typescript
-- 
+- Postgres
+- PostGraphile
 
 ## Features
 - Completely written in [Typescript](https://typescriptlang.org/)

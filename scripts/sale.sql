@@ -1,4 +1,4 @@
-CREATE TABLE app.sale (
+CREATE TABLE sale (
 	id serial PRIMARY KEY,
 	transaction_hash TEXT NOT NULL ,
 	seller_address  TEXT  NOT NULL,
