@@ -26,9 +26,9 @@ This is a liteflow assessment project: Blockchain Indexer  powered by Nodejs, Pg
 - Run the server in dev env
 - `npm run dev`
 - Using PostGraphile to create a GraphQL API
-- `postgraphile -c {{connectionurl}} -s {{schema}} --watch -p {{desiredPort}}`
+- `npx postgraphile -c {{connectionurl}} -s {{schema}} --watch -p {{desiredPort}}`
 - To run the service in production env
-- `yarn build && yarn start`
+- `npm build && npm start`
 
 
 
